@@ -18,8 +18,8 @@ public class GameWindow : FridgeWindow
     #endregion
 
 
-    public Joystick MovementJoystick;
-    public Joystick ShootJoystick;
+    public Joystick MovementJoystick = null!;
+    public Joystick ShootJoystick = null!;
 
     private Action? _shootAction;
 
