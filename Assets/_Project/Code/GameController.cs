@@ -25,7 +25,6 @@ public class GameController : MonoBehaviour
     private GameObject _game = null!;
 
     private GameWindow? _gameWindow;
-    private MovementWindow? _movementWindow;
 
     private List<IEnemy> _enemies = new();
     
@@ -69,12 +68,11 @@ public class GameController : MonoBehaviour
 
     public void FinishGame()
     {
-        if (_gameWindow == null || _movementWindow == null)
+        if (_gameWindow == null)
             throw new NullReferenceException("if (_gameWindow == null || _movementWindow == null)");
         
         _game.SetActive(false);
         _gameWindow.Close();
-        _movementWindow.Close();
         MenuWindow.CreateWindow().Show();
     }
 }

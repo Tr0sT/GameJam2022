@@ -57,7 +57,8 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
             if (contact.collider.CompareTag("Player") && !_active)
             {
                 //contact.collider.GetComponent<PlayerController>().PickupSaw();
-                
+                DestroyBullet();
+                return;
             }
         }
     }

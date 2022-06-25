@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    public static PlayerMovementController Instance { get; private set; } = null!;
     public bool pc;
     public float speed;
     
@@ -13,6 +14,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void Init(Joystick movementJoystick)
     {
+        Instance = this;
         _joystick = movementJoystick;
     }
     
