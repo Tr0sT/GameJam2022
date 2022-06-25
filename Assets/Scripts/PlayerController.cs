@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public bool pc = false;
     public float speed;
     public int health;
     public Joystick joystick;
+
+ 
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Vector2 moveVelocity;
@@ -21,7 +24,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveInput = new Vector2(joystick.Horizontal, joystick.Vertical);
+        if(pc)
+        {
+            moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
+        else
+        {
+            moveInput = new Vector2(joystick.Horizontal, joystick.Vertical);
+        }
+            
         moveVelocity = moveInput.normalized * speed;
     }
 
