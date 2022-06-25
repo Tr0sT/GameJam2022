@@ -29,25 +29,21 @@ public class GunController : MonoBehaviour
             float rotZ = Mathf.Atan2(joystick.Vertical, joystick.Horizontal) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
         }
+        
+    }
+
+    public void btnShoot()
+    {
+        Instantiate(bullet, shotPoint.position, transform.rotation);
+        timeBtwShorts = startTimeShots;
+
         if (timeBtwShorts <= 0)
         {
-            if (joystick.Horizontal != 0 || joystick.Vertical != 0)
-            {
-                Instantiate(bullet, shotPoint.position, transform.rotation);
-                timeBtwShorts = startTimeShots;
-            }
+
         }
         else
         {
             timeBtwShorts -= Time.deltaTime;
         }
-
-
-
-    }
-
-    public void btnShoot()
-    {
-
     }
 }
