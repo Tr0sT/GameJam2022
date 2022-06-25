@@ -10,7 +10,7 @@ public class SawBulletSettings : IBulletSettings
     public int MaxHitCount { get; set; } = 3;
 
     [OdinSerialize]
-    public float speed = 1000;
+    public int speed = 1000;
     [OdinSerialize]
     public float lifetime;
 }

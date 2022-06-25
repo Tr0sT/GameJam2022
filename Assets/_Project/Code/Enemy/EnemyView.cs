@@ -9,25 +9,14 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
     [NonSerialized] [OdinSerialize] 
     private EnemySettings _enemySettings = null!;
 
-    [SerializeField] 
-    private Rigidbody2D _rigidbody2D = null!;
-
-    private int _health;
-
-    private Vector3 _moveVelocity;
-
-    public void Update()
-    {
-        _enemySettings.EnemyMovement.Move(transform, _rigidbody2D);
-    }
 
     public void Init(Vector3 position, IEnemySettings enemySettings)
     {
         _enemySettings = (EnemySettings) enemySettings;
         transform.localPosition = position.WithZ(-1);
-
-        _health = _enemySettings.Health;
     }
+    
+    
 
     public void DeInit()
     {
@@ -35,6 +24,6 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
 
     public void TakeDamage(int damage)
     {
-        _health -= damage;
+       // _health -= damage;
     }
 }

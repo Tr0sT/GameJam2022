@@ -15,8 +15,6 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private BulletSpawnController _bulletSpawnController = null!;
     
-    [SerializeField]
-    private PlayerMovementController _playerMovementController = null!;
 
     [SerializeField] 
     private ShootController _shootController = null!;
@@ -52,9 +50,7 @@ public class GameController : MonoBehaviour
         _gameWindow = GameWindow.CreateWindow(_shootController.Shoot);
         _gameWindow.Show();
         
-        _playerMovementController.Init(_gameWindow.MovementJoystick);
         _shootController.Init(_gameWindow.ShootJoystick);
-        
 
         for (var i = 0; i < 1; i++)
         {

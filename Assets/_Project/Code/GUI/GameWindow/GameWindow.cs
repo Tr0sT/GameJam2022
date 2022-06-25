@@ -4,6 +4,7 @@ using NuclearBand;
 
 public class GameWindow : FridgeWindow
 {
+    public static GameWindow Instance { get; private set; } = null!;
     #region Creation
     private const string Path = "GUI/GameWindow/GameWindow";
 
@@ -13,6 +14,7 @@ public class GameWindow : FridgeWindow
         {
             var w = (GameWindow)window;
             w._shootAction = shootAction;
+            Instance = w;
         }).Window;
     }
     #endregion
