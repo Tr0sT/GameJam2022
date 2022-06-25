@@ -7,4 +7,9 @@ public static class VectorExtensions
     {
         return new Vector3(vector2.x, vector2.y, z);
     }
+    
+    public static Vector3 WithZ(this Vector3 vector3, int z)
+    {
+        return new Vector3(vector3.x, vector3.y, z);
+    }
 }
