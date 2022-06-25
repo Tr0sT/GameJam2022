@@ -1,7 +1,6 @@
-﻿using UnityEngine;
+﻿#nullable enable
 
 public interface IBulletSettings
 {
-    public Vector3 StartPosition { get; set; }
-    public Vector3 StartDirection { get; set; }
+    public int Damage { get; set; }
 }

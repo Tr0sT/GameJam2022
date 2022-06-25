@@ -554,9 +554,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GunController, Assembly-CSharp
-        m_MethodName: btnShoot
+      - m_Target: {fileID: 70741496}
+        m_TargetAssemblyTypeName: ShootController, Assembly-CSharp
+        m_MethodName: Shoot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1031,7 +1031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1153347500}
   m_Layer: 5
-  m_Name: run
+  m_Name: MoveJoystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1178,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.14195444, g: 0.16746274, b: 0.20754719, a: 0}
+  m_BackGroundColor: {r: 0.14195444, g: 0.16746274, b: 0.20754719, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1795,6 +1795,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceeb5ba55513448b8e2c9e1179bc23ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _sawBulletSettings
+      Entry: 7
+      Data: 0|SawBulletSettings, Assembly-CSharp
+    - Name: Damage
+      Entry: 3
+      Data: 0
+    - Name: MaxHitCount
+      Entry: 3
+      Data: 0
+    - Name: speed
+      Entry: 4
+      Data: 1000
+    - Name: lifetime
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!50 &1678815049
 Rigidbody2D:
   serializedVersion: 4
@@ -1941,7 +1968,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
 --- !u!114 &1795752394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2245,7 +2272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2077832682}
   m_Layer: 5
-  m_Name: run (1)
+  m_Name: ShootJoystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2454,6 +2481,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15168bd10f9a4fa0b5989860e80c52cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _enemySettings
+      Entry: 7
+      Data: 0|EnemySettings, Assembly-CSharp
+    - Name: Health
+      Entry: 3
+      Data: 100
+    - Name: Damage
+      Entry: 3
+      Data: 10
+    - Name: Speed
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!212 &2492991966895524192
 SpriteRenderer:
   m_ObjectHideFlags: 0

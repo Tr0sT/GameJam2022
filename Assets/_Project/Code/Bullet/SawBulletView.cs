@@ -1,21 +1,26 @@
 ﻿#nullable enable
 using System;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
-public class SawBulletView : MonoBehaviour, IBullet
+public class SawBulletView : SerializedMonoBehaviour, IBullet
 {
     public event Action<IBullet>? OnDestroy;
-    private Vector3 _direction;
+
+    [NonSerialized, OdinSerialize]
     private SawBulletSettings _sawBulletSettings = null!;
-    
+
+    private Vector3 _direction;
+
     private int _hitCount;
     private bool active = false;
 
-    public void Init(IBulletSettings bulletSettings)
+    public void Init(Vector3 position, Vector3 direction, IBulletSettings bulletSettings)
     {
         _sawBulletSettings = (SawBulletSettings)bulletSettings;
-        transform.localPosition = _sawBulletSettings.StartPosition.WithZ(0);
-        _direction = _sawBulletSettings.StartDirection;
+        transform.localPosition = position.WithZ(0);
+        _direction = direction;
         active = true;
     }
 
@@ -36,7 +41,7 @@ public class SawBulletView : MonoBehaviour, IBullet
         {
             if (contact.collider.CompareTag("Enemy"))
             {
-                contact.collider.GetComponent<IEnemy>().TakeDamage(_sawBulletSettings.damage);
+                contact.collider.GetComponent<IEnemy>().TakeDamage(_sawBulletSettings.Damage);
                 DestroyBullet();
                 return;
             }

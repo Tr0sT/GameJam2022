@@ -1,15 +1,22 @@
 ﻿#nullable enable
+using System;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
-    public class EnemyView : MonoBehaviour, IEnemy
+public class EnemyView : SerializedMonoBehaviour, IEnemy
     {
         private int _health;
-        public void Init(Vector2 position, object enemySettings)
+        [NonSerialized, OdinSerialize] 
+        private EnemySettings _enemySettings = null!;
+        
+        public void Init(Vector3 position, IEnemySettings enemySettings)
         {
-            _health = 100;
+            _enemySettings = (EnemySettings) enemySettings;
             transform.localPosition = position.WithZ(-1);
+
+            _health = _enemySettings.Health;
         }
-    
     
         public void DeInit()
         {

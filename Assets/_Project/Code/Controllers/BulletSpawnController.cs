@@ -45,10 +45,8 @@ public class BulletSpawnController : MonoBehaviour
     public void SpawnBullet(Vector3 position, Vector3 direction, IBulletSettings bulletSettings)
     {
         var bullet = _bulletPool.Get();
-        bulletSettings.StartPosition = position;
-        bulletSettings.StartDirection = direction;
         
-        bullet.Init(bulletSettings);
+        bullet.Init(position, direction, bulletSettings);
         bullet.OnDestroy += OnDestroyBulletCallback;
     }
 

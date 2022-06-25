@@ -15,7 +15,7 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] 
     private Transform _enemiesParent = null!;
     
-    private IObjectPool<EnemyView> _enemyPool = null!;
+    private IObjectPool<IEnemy> _enemyPool = null!;
 
     public void Init()
     {
@@ -23,25 +23,31 @@ public class EnemySpawnController : MonoBehaviour
         
         _enemyPrefab.gameObject.SetActive(false);
         
-        _enemyPool = new ObjectPool<EnemyView>(() => 
-                GameObject.Instantiate(_enemyPrefab.gameObject, _enemiesPoolParent).GetComponent<EnemyView>(), 
+        _enemyPool = new ObjectPool<IEnemy>(() => 
+                GameObject.Instantiate(_enemyPrefab.gameObject, _enemiesPoolParent).GetComponent<IEnemy>(), 
             view =>
             {
-                view.gameObject.SetActive(true);
-                view.transform.parent = _enemiesParent;
+                (view as MonoBehaviour)!.gameObject.SetActive(true);
+                (view as MonoBehaviour)!.transform.parent = _enemiesParent;
             }, view =>
             {
                 view.DeInit();
-                view.transform.parent = _enemiesPoolParent;
+                (view as MonoBehaviour)!.transform.parent = _enemiesPoolParent;
             }, view =>
             {
-                GameObject.Destroy(view.gameObject);
+                GameObject.Destroy((view as MonoBehaviour)!.gameObject);
             }, true, 20);
     }
 
-    public void SpawnEnemy(Vector2 position, object enemySettings)
+    public IEnemy SpawnEnemy(Vector2 position, IEnemySettings enemySettings)
     {
         var enemy = _enemyPool.Get();
         enemy.Init(position, enemySettings);
+        return enemy;
+    }
+
+    public void DestroyEnemy(IEnemy enemy)
+    {
+        _enemyPool.Release(enemy);
     }
 }

@@ -1,5 +1,6 @@
 #nullable enable
 using System;
+using System.Collections.Generic;
 using NuclearBand;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -19,6 +20,8 @@ public class GameController : MonoBehaviour
 
     private GameWindow? _gameWindow;
     private MovementWindow? _movementWindow;
+
+    private List<IEnemy> _enemies = new();
     
     private void Awake()
     {
@@ -48,7 +51,9 @@ public class GameController : MonoBehaviour
 
         for (var i = 0; i < 10; i++)
         {
-            _enemySpawnController.SpawnEnemy(new Vector2(Random.Range(-1000, 1000), Random.Range(-500, 500)), null!);
+            _enemies.Add(_enemySpawnController.SpawnEnemy(
+                new Vector2(Random.Range(-1000, 1000), 
+                    Random.Range(-500, 500)), new EnemySettings()));
         }
         
         _game.SetActive(true);

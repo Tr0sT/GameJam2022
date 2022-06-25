@@ -1,16 +1,16 @@
 ﻿#nullable enable
+using Sirenix.Serialization;
 using UnityEngine;
 
 public class SawBulletSettings : IBulletSettings
 {
-    public Vector3 StartPosition { get; set; }
-    public Vector3 StartDirection { get; set; }
+    [OdinSerialize]
+    public int Damage { get; set; } = 1;
+    [OdinSerialize]
     public int MaxHitCount { get; set; } = 3;
 
+    [OdinSerialize]
     public float speed = 1000;
+    [OdinSerialize]
     public float lifetime;
-    public float distance = 100;
-    public int damage = 1;
-    public LayerMask whatIsSolid;
-
 }
