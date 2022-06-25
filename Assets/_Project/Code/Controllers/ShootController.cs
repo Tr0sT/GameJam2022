@@ -4,7 +4,7 @@ public class ShootController : MonoBehaviour
 {
     public bool pc;
     public float offset;
-    public Joystick joystick;
+    private Joystick _joystick;
     public Transform shotPoint;
 
     private float timeBtwShorts;
@@ -13,11 +13,16 @@ public class ShootController : MonoBehaviour
 
     public float startTimeShots;
 
+    public void Init(Joystick shootJoystick)
+    {
+        _joystick = shootJoystick;
+    }
+    
     void Update()
     {
-        if (!pc && Mathf.Abs(joystick.Horizontal) > 0.1f || Mathf.Abs(joystick.Vertical) > 0.1f)
+        if (!pc && Mathf.Abs(_joystick.Horizontal) > 0.1f || Mathf.Abs(_joystick.Vertical) > 0.1f)
         {
-            rotZ = Mathf.Atan2(joystick.Vertical, joystick.Horizontal) * Mathf.Rad2Deg;  
+            rotZ = Mathf.Atan2(_joystick.Vertical, _joystick.Horizontal) * Mathf.Rad2Deg;  
         }
         else
         {

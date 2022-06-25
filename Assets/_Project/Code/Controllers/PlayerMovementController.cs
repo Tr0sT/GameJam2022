@@ -6,12 +6,16 @@ public class PlayerMovementController : MonoBehaviour
     public bool pc;
     public float speed;
     
-    [SerializeField]
     private  Joystick _joystick = null!;
 
     private Vector2 _moveInput;
     private Vector2 _moveVelocity;
 
+    public void Init(Joystick movementJoystick)
+    {
+        _joystick = movementJoystick;
+    }
+    
     private void Update()
     {
         if (pc)
