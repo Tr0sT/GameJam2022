@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 70741495}
   - component: {fileID: 70741494}
   - component: {fileID: 70741496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 72827873}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 505015141}
   - component: {fileID: 505015142}
   - component: {fileID: 505015143}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallLeft
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 817270232}
   - component: {fileID: 817270233}
   - component: {fileID: 817270234}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallTop
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1160718064}
   - component: {fileID: 1160718065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 1372924087}
   - component: {fileID: 1372924086}
   - component: {fileID: 1372924085}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemySpine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1423789261}
   - component: {fileID: 1423789260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,7 +1236,8 @@ GameObject:
   - component: {fileID: 1470978584}
   - component: {fileID: 1470978587}
   - component: {fileID: 1470978588}
-  m_Layer: 0
+  - component: {fileID: 1470978589}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1289,8 +1290,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910eb0f6e9fc4224b73c7f89f351084b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 1470978589}
   pc: 1
   speed: 400
+--- !u!50 &1470978589
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470978583}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1634507671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1326,7 @@ GameObject:
   - component: {fileID: 1634507673}
   - component: {fileID: 1634507674}
   - component: {fileID: 1634507675}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallRight
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1436,7 +1459,7 @@ GameObject:
   - component: {fileID: 1678815047}
   - component: {fileID: 1678815048}
   - component: {fileID: 1678815049}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SawBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -1514,6 +1537,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _rigidbody2D: {fileID: 1678815049}
 --- !u!50 &1678815049
 Rigidbody2D:
   serializedVersion: 4
@@ -1528,13 +1552,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1747186085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,7 +1638,7 @@ GameObject:
   - component: {fileID: 1863042165}
   - component: {fileID: 1863042166}
   - component: {fileID: 1863042167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallBottom
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1777,7 +1801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2074777158}
   - component: {fileID: 2074777159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1863,7 +1887,7 @@ GameObject:
   - component: {fileID: 2144853729}
   - component: {fileID: 2144853731}
   - component: {fileID: 2144853730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1916,12 +1940,13 @@ MonoBehaviour:
     - Name: Damage
       Entry: 3
       Data: 10
-    - Name: Speed
-      Entry: 3
-      Data: 100
+    - Name: EnemyMovement
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
+  _rigidbody2D: {fileID: 2144853731}
 --- !u!70 &2144853730
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1950,15 +1975,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2492991966895524192
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2021,7 +2046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8554112163483525301}
   - component: {fileID: 2492991966895524192}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

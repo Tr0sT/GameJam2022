@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
         _shootController.Init(_gameWindow.ShootJoystick);
         
 
-        for (var i = 0; i < 10; i++)
+        for (var i = 0; i < 1; i++)
         {
             _enemies.Add(_enemySpawnController.SpawnEnemy(
                 new Vector2(Random.Range(-1000, 1000), 

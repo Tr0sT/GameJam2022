@@ -6,7 +6,11 @@ using UnityEngine;
 
 public class EnemyView : SerializedMonoBehaviour, IEnemy
 {
-    [NonSerialized] [OdinSerialize] private EnemySettings _enemySettings = null!;
+    [NonSerialized] [OdinSerialize] 
+    private EnemySettings _enemySettings = null!;
+
+    [SerializeField] 
+    private Rigidbody2D _rigidbody2D = null!;
 
     private int _health;
 
@@ -14,7 +18,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
 
     public void Update()
     {
-        _enemySettings.EnemyMovement.Move(transform);
+        _enemySettings.EnemyMovement.Move(transform, _rigidbody2D);
     }
 
     public void Init(Vector3 position, IEnemySettings enemySettings)
