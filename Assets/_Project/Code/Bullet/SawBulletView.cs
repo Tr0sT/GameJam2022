@@ -14,19 +14,19 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
     private Vector3 _direction;
 
     private int _hitCount;
-    private bool active = false;
+    private bool _active;
 
     public void Init(Vector3 position, Vector3 direction, IBulletSettings bulletSettings)
     {
         _sawBulletSettings = (SawBulletSettings)bulletSettings;
         transform.localPosition = position.WithZ(0);
         _direction = direction;
-        active = true;
+        _active = true;
     }
 
     public void Update()
     {
-        if (!active)
+        if (!_active)
             return;
         
         transform.localPosition += _direction * (_sawBulletSettings.speed * Time.deltaTime);
@@ -34,27 +34,30 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!active)
-            return;
-        
         foreach (var contact in collision.contacts)
         {
-            if (contact.collider.CompareTag("Enemy"))
+            if (contact.collider.CompareTag("Enemy") && _active)
             {
                 contact.collider.GetComponent<IEnemy>().TakeDamage(_sawBulletSettings.Damage);
                 DestroyBullet();
                 return;
             }
-            if (contact.collider.CompareTag("Wall"))
+            if (contact.collider.CompareTag("Wall") && _active)
             {
                 _direction = Vector3.Reflect(_direction, contact.normal);
                 _hitCount++;
                 
                 if (_hitCount >= _sawBulletSettings.MaxHitCount)
                 {
-                    DestroyBullet();
+                    _active = false;
                     return;
                 }
+            }
+            
+            if (contact.collider.CompareTag("Player") && !_active)
+            {
+                //contact.collider.GetComponent<PlayerController>().PickupSaw();
+                
             }
         }
     }
@@ -69,7 +72,7 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         _hitCount = 0;
         _direction = Vector3.zero;
         _sawBulletSettings = null!;
-        active = false;
+        _active = false;
         OnDestroy = null;
     }
 }

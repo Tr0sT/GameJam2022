@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemyView : SerializedMonoBehaviour, IEnemy
     {
         private int _health;
+        
         [NonSerialized, OdinSerialize] 
         private EnemySettings _enemySettings = null!;
         

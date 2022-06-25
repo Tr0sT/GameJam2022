@@ -25,6 +25,10 @@ public class PlayerMovementController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 add = _moveVelocity * Time.fixedDeltaTime;
-        transform.localPosition += add;
+        var localPosition = transform.localPosition;
+        localPosition += add;
+        var newPosition = new Vector2(Mathf.Clamp(localPosition.x, -1000, 1000),
+            Mathf.Clamp(localPosition.y, -500, 500));
+        transform.localPosition = newPosition;
     }
 }
