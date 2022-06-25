@@ -27,13 +27,9 @@ public class Bullet : MonoBehaviour
             {
                 hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
             }
-            if (hitInfo.collider.CompareTag("Wall"))
-            {
-                transform.Translate(Vector2.down * speed * Time.deltaTime);
-            }
             DestroyBullet();
         }
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+       // transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
     public void DestroyBullet()

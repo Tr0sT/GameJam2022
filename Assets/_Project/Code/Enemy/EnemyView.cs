@@ -24,6 +24,6 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
 
     public void TakeDamage(int damage)
     {
-       // _health -= damage;
+        //_health -= damage;
     }
 }
