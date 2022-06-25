@@ -2,10 +2,14 @@
 using System;
 using NuclearBand;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; } = null!;
+
+    [SerializeField]
+    private EnemySpawnController _enemySpawnController = null!;
 
     private GameWindow? _gameWindow;
     private MovementWindow? _movementWindow;
@@ -13,6 +17,9 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
+        _enemySpawnController.Init();
+        
         WindowsManager.Init(new WindowsManagerSettings
         {
             InputBlockPath = "GUI/InputBlocker",
@@ -30,6 +37,11 @@ public class GameController : MonoBehaviour
         _gameWindow.Show();
         _movementWindow = MovementWindow.CreateWindow();
         _movementWindow.Show();
+
+        for (var i = 0; i < 10; i++)
+        {
+            _enemySpawnController.SpawnEnemy(new Vector2(Random.Range(-1000, 1000), Random.Range(-500, 500)), null!);
+        }
     }
 
     public void FinishGame()
