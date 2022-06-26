@@ -32,6 +32,16 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
             {
                 cam.GetComponent<Animator>().Play("cameraAnim", 0, 0.25f);
             }
+            if (contact.collider.CompareTag("Player"))
+            {
+                if (Active)
+                {
+                    contact.collider.GetComponent<PlayerHealth>().TakeDamage(_sawBulletSettings.Damage);
+                }
+                ShootController.Instance.PickupSaw();
+                DestroyBullet();
+                return;
+            }
         }
 
     }
@@ -44,16 +54,7 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
 
             return;
         }
-        if (collider.CompareTag("Player"))
-        {
-            if (Active)
-            {
-                collider.GetComponent<PlayerHealth>().TakeDamage(_sawBulletSettings.Damage);
-            }
-            ShootController.Instance.PickupSaw();
-            DestroyBullet();
-            return;
-        }
+       
 
         //foreach (var contact in collision.contacts)
         //{
