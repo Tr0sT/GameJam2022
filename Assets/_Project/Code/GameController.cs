@@ -104,7 +104,7 @@ public class GameController : SerializedMonoBehaviour
         
         _game.SetActive(false);
         _gameWindow.Close();
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
         //MenuWindow.CreateWindow().Show();
         _active = false;
     }

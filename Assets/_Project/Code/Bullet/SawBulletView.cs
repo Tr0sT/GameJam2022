@@ -9,6 +9,7 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
 {
     public event Action<IBullet>? OnDestroy;
     public Camera cam;
+    public int speedRotate = 300;
     [NonSerialized, OdinSerialize]
     private SawBulletSettings _sawBulletSettings = null!;
 
@@ -22,7 +23,7 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         GetComponent<Movement>().Direction = direction;
         Active = true;
         Physics2D.IgnoreCollision(PlayerMovement.Instance.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        Debug.Log("true");
+        //Debug.Log("true");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -99,5 +100,14 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         OnDestroy = null;
         Physics2D.IgnoreCollision(PlayerMovement.Instance.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
         Debug.Log("false");
+    }
+    private void FixedUpdate()
+    {
+        if (Active)
+        {
+            gameObject.transform.Rotate(0, 0, speedRotate * 1f * Time.deltaTime);
+        }
+
+        
     }
 }
