@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyView : SerializedMonoBehaviour, IEnemy
 {
     public event Action<IEnemy>? OnDestroy;
-    
+
     [NonSerialized] [OdinSerialize] 
     private EnemySettings _enemySettings = null!;
 
@@ -29,7 +29,8 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
             if (contact.collider.CompareTag("Player"))
             {
                 contact.collider.GetComponent<PlayerHealth>().TakeDamage(_enemySettings.Damage);
-                
+                gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                Destroy(gameObject);
                 return;
             }
         }

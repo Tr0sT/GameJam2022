@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public int health;
     public Joystick joystick;
-
+    public int valueSaw;
  
 
     private Rigidbody2D rb;
@@ -45,4 +45,10 @@ public class PlayerController : MonoBehaviour
     {
         health += helthValue;
     }
+
+   public void PickupSaw()
+    {
+        valueSaw += valueSaw;
+    }
+        
 }
