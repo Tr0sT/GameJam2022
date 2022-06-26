@@ -79,6 +79,10 @@ public class ShootController : MonoBehaviour
             AudioManager.PlaySound("Выстрел2");
         
         _curBulletCount--;
+        if (_curBulletCount <= 0)
+        {
+            PlayerMovement.Instance.WithSaw(false);
+        }
         timeBtwShorts = startTimeShots;
     }
 
@@ -90,5 +94,6 @@ public class ShootController : MonoBehaviour
     public void PickupSaw()
     {
         _curBulletCount++;
+        PlayerMovement.Instance.WithSaw(true);
     }
 }
