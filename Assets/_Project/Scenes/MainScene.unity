@@ -278,7 +278,7 @@ MonoBehaviour:
   pc: 0
   offset: -90
   circle: {fileID: 1160718063}
-  crosshair: {fileID: 0}
+  crosshair: {fileID: 401444053}
   noArmor: {fileID: 21300000, guid: fa8d24865748a57448ecc3c3059312d0, type: 3}
   yesArmor: {fileID: 21300000, guid: fe0df9395fe8ea6448ba1ddf3d0ecfba, type: 3}
   shotPoint: {fileID: 1736340863}
