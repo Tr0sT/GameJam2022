@@ -1259,6 +1259,7 @@ GameObject:
   - component: {fileID: 1470978589}
   - component: {fileID: 1470978590}
   - component: {fileID: 1470978591}
+  - component: {fileID: 1470978592}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1348,6 +1349,19 @@ MonoBehaviour:
   Direction: {x: 0, y: 0}
   Speed: 400
   _rigidbody2D: {fileID: 1470978589}
+--- !u!114 &1470978592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470978583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56f44980cfd4b5992ef063a7bd99b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartHealth: 10
 --- !u!1 &1586499610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,7 +1388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586499610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -130, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1665,13 +1679,13 @@ MonoBehaviour:
       Data: 0|SawBulletSettings, Assembly-CSharp
     - Name: Damage
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: MaxHitCount
       Entry: 3
       Data: 0
     - Name: speed
       Entry: 3
-      Data: 0
+      Data: 800
     - Name: lifetime
       Entry: 4
       Data: 0
@@ -2155,7 +2169,6 @@ GameObject:
   - component: {fileID: 2144853728}
   - component: {fileID: 2144853729}
   - component: {fileID: 2144853731}
-  - component: {fileID: 2144853730}
   - component: {fileID: 2144853732}
   - component: {fileID: 2144853733}
   - component: {fileID: 2144853734}
@@ -2174,7 +2187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144853723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -328, y: 129, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2209,29 +2222,13 @@ MonoBehaviour:
       Data: 0|EnemySettings, Assembly-CSharp
     - Name: Health
       Entry: 3
-      Data: 100
+      Data: 3
     - Name: Damage
       Entry: 3
-      Data: 10
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
---- !u!70 &2144853730
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144853723}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 150}
-  m_Size: {x: 100, y: 400}
-  m_Direction: 0
 --- !u!50 &2144853731
 Rigidbody2D:
   serializedVersion: 4
@@ -2280,8 +2277,8 @@ MonoBehaviour:
   Direction: {x: 0, y: 0}
   Speed: 200
   _rigidbody2D: {fileID: 2144853731}
---- !u!61 &2144853734
-BoxCollider2D:
+--- !u!58 &2144853734
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2293,19 +2290,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 5, y: -20}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 75
 --- !u!212 &2492991966895524192
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2351,7 +2338,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 75, y: 75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -2384,7 +2371,7 @@ Transform:
   m_GameObject: {fileID: 6238315702304005023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.72115386, y: 0.72115386, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1678815045}

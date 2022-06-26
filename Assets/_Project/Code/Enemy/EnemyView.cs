@@ -6,24 +6,46 @@ using UnityEngine;
 
 public class EnemyView : SerializedMonoBehaviour, IEnemy
 {
+    public event Action<IEnemy>? OnDestroy;
+    
     [NonSerialized] [OdinSerialize] 
     private EnemySettings _enemySettings = null!;
+
+    private int _health;
 
 
     public void Init(Vector3 position, IEnemySettings enemySettings)
     {
         _enemySettings = (EnemySettings) enemySettings;
         transform.localPosition = position.WithZ(-1);
+        _health = _enemySettings.Health;
     }
-    
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        foreach (var contact in collision.contacts)
+        {
+            if (contact.collider.CompareTag("Player"))
+            {
+                contact.collider.GetComponent<PlayerHealth>().TakeDamage(_enemySettings.Damage);
+                
+                return;
+            }
+        }
+    }
 
     public void DeInit()
     {
+        OnDestroy = null;
     }
 
     public void TakeDamage(int damage)
     {
-        //_health -= damage;
+        _health -= damage;
+
+        if (_health <= 0)
+        {
+            OnDestroy?.Invoke(this);
+        }
     }
 }

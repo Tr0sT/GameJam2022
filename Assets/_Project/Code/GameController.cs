@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
     private GameWindow? _gameWindow;
 
     private List<IEnemy> _enemies = new();
+
+    private bool _active;
     
     private void Awake()
     {
@@ -54,12 +56,29 @@ public class GameController : MonoBehaviour
 
         for (var i = 0; i < 1; i++)
         {
-            _enemies.Add(_enemySpawnController.SpawnEnemy(
-                new Vector2(Random.Range(-1000, 1000), 
-                    Random.Range(-500, 500)), new EnemySettings()));
+            _enemies.Add(_enemySpawnController.SpawnRandom());
         }
         
         _game.SetActive(true);
+        _active = true;
+    }
+
+
+    private float _spawnTime = 2.0f;
+    private float _curTime = 0.0f;
+    private void Update()
+    {
+        if (!_active)
+            return;
+
+        if (_curTime >= _spawnTime)
+        {
+            _enemies.Add(_enemySpawnController.SpawnRandom());
+
+            _curTime = 0;
+        }
+
+        _curTime += Time.deltaTime;
     }
 
     public void FinishGame()
@@ -70,5 +89,6 @@ public class GameController : MonoBehaviour
         _game.SetActive(false);
         _gameWindow.Close();
         MenuWindow.CreateWindow().Show();
+        _active = false;
     }
 }
