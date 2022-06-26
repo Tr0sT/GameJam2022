@@ -1,6 +1,9 @@
 #nullable enable
 using System;
+using System.Collections.Generic;
 using NuclearBand;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class GameWindow : FridgeWindow
 {
@@ -24,10 +27,27 @@ public class GameWindow : FridgeWindow
     public Joystick ShootJoystick = null!;
 
     private Action? _shootAction;
+    
+    [SerializeField] 
+    private List<Image> _hpImages = new();
+
+    public override void Init()
+    {
+        base.Init();
+        SetHP(1.0f);
+    }
 
     public void OnShoot()
     {
         _shootAction?.Invoke();
+    }
+
+    public void SetHP(float proc)
+    {
+        foreach (var hpImage in _hpImages)
+        {
+            hpImage.color = new Color(hpImage.color.r, hpImage.color.g, hpImage.color.b, 1 - proc);
+        }
     }
     
     public override void OnBackButtonPressedCallback()

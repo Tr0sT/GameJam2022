@@ -17,5 +17,10 @@ using UnityEngine;
         public void TakeDamage(int damage)
         {
             _health -= damage;
+            GameWindow.Instance.SetHP(Mathf.Clamp(1.0f * _health / StartHealth, 0, 1));
+            if (_health <= 0)
+            {
+                GameController.Instance.FinishGame();
+            }
         }
     }
