@@ -1,0 +1,76 @@
+
+NewProject_3.png
+size: 4096,4096
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Нарезка Бургера_anim/皖汔1
+  rotate: false
+  xy: 1458, 1251
+  size: 256, 303
+  orig: 256, 303
+  offset: 0, 0
+  index: -1
+Нарезка Бургера_anim/畜赅1
+  rotate: false
+  xy: 988, 1251
+  size: 233, 515
+  orig: 233, 515
+  offset: 0, 0
+  index: -1
+weapon01
+  rotate: false
+  xy: 1023, 1768
+  size: 248, 236
+  orig: 248, 236
+  offset: 0, 0
+  index: -1
+Нарезка Бургера_anim/畜赅2
+  rotate: false
+  xy: 1223, 1251
+  size: 233, 515
+  orig: 233, 515
+  offset: 0, 0
+  index: -1
+Нарезка Бургера_anim/皖汔2
+  rotate: false
+  xy: 1458, 1556
+  size: 256, 303
+  orig: 256, 303
+  offset: 0, 0
+  index: -1
+Нарезка Бургера_anim/亦_
+  rotate: false
+  xy: 1, 1251
+  size: 985, 740
+  orig: 985, 740
+  offset: 0, 0
+  index: -1
+Нарезка Бургера_anim/义腩
+  rotate: false
+  xy: 1, 1
+  size: 1951, 1248
+  orig: 1951, 1248
+  offset: 0, 0
+  index: -1
+Нарезка Бургера_anim/剜痿
+  rotate: false
+  xy: 1954, 1156
+  size: 1242, 1188
+  orig: 1242, 1188
+  offset: 0, 0
+  index: -1
+Нарезка Бургера_anim/妙腩忄
+  rotate: false
+  xy: 1954, 1
+  size: 1339, 1153
+  orig: 1339, 1153
+  offset: 0, 0
+  index: -1
+Нарезка Бургера_anim/髓鲱
+  rotate: false
+  xy: 1, 1993
+  size: 1020, 601
+  orig: 1020, 601
+  offset: 0, 0
+  index: -1
