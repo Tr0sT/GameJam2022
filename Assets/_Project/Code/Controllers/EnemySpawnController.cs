@@ -52,8 +52,12 @@ public class EnemySpawnController : MonoBehaviour
         Vector2 position = Vector2.zero;
         if (side <= 2000) // top
             position = new Vector2(Random.Range(-1000, 1000), 500);
+        else if (side <= 3000)  // right
+            position = new Vector2(Random.Range(-700, 700), -500);
         else if (side <= 5000) // bottom
             position = new Vector2(Random.Range(-1000, 1000), -500);
+        else  // left
+            position = new Vector2(Random.Range(-700, 700), 500);
         
         return SpawnEnemy(position, enemySettings);
     }
