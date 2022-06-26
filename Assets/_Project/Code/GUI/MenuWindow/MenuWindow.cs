@@ -26,7 +26,7 @@ public class MenuWindow : FridgeWindow
     {
         Close();
         AudioManager.PlaySound("Нажатиекнопки");
-        GameController.Instance.StartGame();
+        CutWindow.CreateWindow().Show();
     }
 
     public void OnHelpClick()

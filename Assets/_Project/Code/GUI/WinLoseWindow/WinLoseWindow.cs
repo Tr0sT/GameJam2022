@@ -30,6 +30,13 @@ public class WinLoseWindow : FridgeWindow
         base.Init();
         _winGO.SetActive(_win);
         _loseGO.SetActive(!_win);
+        if (_win)
+            AudioManager.PlaySound("Победа");
+        else
+        {
+            AudioManager.PlaySound("Поражение");
+        }
+            
         GameController.Instance.Pause(true);
     }
 
