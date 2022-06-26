@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using NuclearBand;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class GameController : MonoBehaviour
+public class GameController : SerializedMonoBehaviour
 {
     public static GameController Instance { get; private set; } = null!;
 
@@ -54,31 +55,41 @@ public class GameController : MonoBehaviour
         
         _shootController.Init(_gameWindow.ShootJoystick);
 
-        for (var i = 0; i < 1; i++)
-        {
-            _enemies.Add(_enemySpawnController.SpawnRandom());
-        }
-        
         _game.SetActive(true);
         _active = true;
     }
 
 
-    private float _spawnTime = 2.0f;
-    private float _curTime = 0.0f;
+    private float _curSpawnTime = 0.0f;
+
+    private int _curStage = 0;
+    private float _curStageTime;
+    [OdinSerialize]
+    private List<Stage> _stages = new();
     private void Update()
     {
         if (!_active)
             return;
 
-        if (_curTime >= _spawnTime)
+        if (_curStage >= _stages.Count)
+            return;
+        if (_curStageTime > _stages[_curStage].Time)
         {
-            _enemies.Add(_enemySpawnController.SpawnRandom());
+            _curStage++;
+            _curStageTime = 0;
+            
+            if (_curStage >= _stages.Count)
+                return;
+        }
+        if (_curSpawnTime >= _stages[_curStage].SpawnDelay && _enemies.Count < _stages[_curStage].MaxEnemiesCount)
+        {
+            _enemies.Add(_enemySpawnController.SpawnRandom(_stages[_curStage].Enemies[0]));
 
-            _curTime = 0;
+            _curSpawnTime = 0;
         }
 
-        _curTime += Time.deltaTime;
+        _curSpawnTime += Time.deltaTime;
+        _curStageTime += Time.deltaTime;
     }
 
     public void FinishGame()
