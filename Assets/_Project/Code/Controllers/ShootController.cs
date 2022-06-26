@@ -6,6 +6,9 @@ public class ShootController : MonoBehaviour
     
     public bool pc;
     public float offset;
+    public GameObject circle;
+    public Sprite noArmor;
+    public Sprite yesArmor;
     private Joystick _joystick;
     public Transform shotPoint;
 
@@ -50,6 +53,17 @@ public class ShootController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Shoot();
+            circle.GetComponent<Animator>().enabled = true;
+            circle.GetComponent<Animator>().Play("circleAnim", 0, 0.25f);
+        }
+
+        if(_curBulletCount <= 0)
+        {
+            circle.GetComponent<SpriteRenderer>().sprite = noArmor;
+        }
+        else
+        {
+            circle.GetComponent<SpriteRenderer>().sprite = yesArmor;
         }
     }
 
