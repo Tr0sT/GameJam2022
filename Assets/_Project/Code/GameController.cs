@@ -5,7 +5,6 @@ using NuclearBand;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameController : SerializedMonoBehaviour
 {
@@ -77,7 +76,13 @@ public class GameController : SerializedMonoBehaviour
             return;
 
         if (_curStage >= _stages.Count)
+        {
+            if (_enemies.Count == 0)
+                Win();
+
             return;
+        }
+
         if (_curStageTime > _stages[_curStage].Time)
         {
             _curStage++;
@@ -107,5 +112,22 @@ public class GameController : SerializedMonoBehaviour
         //SceneManager.LoadScene(0);
         //MenuWindow.CreateWindow().Show();
         _active = false;
+    }
+
+    public void Lose()
+    {
+        _active = false;
+        WinLoseWindow.CreateWindow(false).Show();
+    }
+
+    public void Win()
+    {
+        _active = false;
+        WinLoseWindow.CreateWindow(true).Show();
+    }
+
+    public void Pause(bool pause)
+    {
+        Time.timeScale = pause ? 0.0f : 1.0f;
     }
 }

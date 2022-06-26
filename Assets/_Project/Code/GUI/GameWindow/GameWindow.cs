@@ -71,6 +71,5 @@ public class GameWindow : FridgeWindow
 
     public override void OnBackButtonPressedCallback()
     {
-        GameController.Instance.FinishGame();
     }
 }

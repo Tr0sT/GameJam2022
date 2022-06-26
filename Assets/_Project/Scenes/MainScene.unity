@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56f44980cfd4b5992ef063a7bd99b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartHealth: 10
+  StartHealth: 5
 --- !u!114 &1241144863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2201,6 +2201,13 @@ MonoBehaviour:
   _animation: {fileID: 859675390}
   _withSaw: {fileID: 859675390}
   _withoutSaw: {fileID: 1889878150}
+  recoilDuration: 0.1
+  recoilVelocityOverTime:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   jump: 0
 --- !u!50 &1241144865
 Rigidbody2D:

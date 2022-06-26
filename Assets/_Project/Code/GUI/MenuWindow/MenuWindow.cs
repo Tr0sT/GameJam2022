@@ -39,11 +39,6 @@ public class MenuWindow : FridgeWindow
         SettingsPopup.CreateWindow().Show();
     }
 
-    public void OnCustomizationClick()
-    {
-        CustomizationWindow.CreateWindow().Show();
-    }
-
     public override void OnBackButtonPressedCallback()
     {
         Application.Quit();

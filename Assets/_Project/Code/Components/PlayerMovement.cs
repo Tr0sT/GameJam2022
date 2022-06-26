@@ -9,6 +9,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] 
     private SkeletonAnimation _withSaw = null!, _withoutSaw = null!;
     
+    [SerializeField] private float recoilDuration = 0.1f;
+    [SerializeField] private AnimationCurve recoilVelocityOverTime;
+
+    private float recoilStartTime = -1;
+    private Vector2 recoilDirection;
+    
     private Joystick _joystick = null!;
     private Movement _movement = null!;
     public static PlayerMovement Instance { get; private set; } = null!;
@@ -36,10 +42,22 @@ public class PlayerMovement : MonoBehaviour
                 _animation.AnimationName = "Идёт";
         }
 
+        float recoilTime = GetRecoilTime();
+        if (recoilTime < recoilDuration)
+        {
+            _movement.Direction = recoilDirection * recoilVelocityOverTime.Evaluate(recoilTime / recoilDuration);
+            return;
+        }
+
         _movement.Direction = moveInput.normalized;
 
         if (Input.GetKey(KeyCode.Space))
             Jump();
+    }
+
+    private float GetRecoilTime()
+    {
+        return Time.timeSinceLevelLoad - recoilStartTime;
     }
 
     private void OnEnable()
@@ -51,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
         _movement = GetComponent<Movement>();
         if (GameWindow.Instance != null) _joystick = GameWindow.Instance.MovementJoystick;
         WithSaw(true);
+        
+        FindObjectOfType<ShootController>().ShotFired += OnShotFired;
     }
 
     public void WithSaw(bool with)
@@ -71,7 +91,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!ShootController.Instance.CanJump())
             return;
-        
+
+        float recoilTime = GetRecoilTime();
+        if (recoilTime < recoilDuration)
+        {
+            return;
+        }
+
         _animation.AnimationName = "Кувырок";
         GetComponent<Movement>().Speed *= 3;
         Invoke(nameof(EndJump), 1.5f);
@@ -84,4 +110,10 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Movement>().Speed /= 3;
     }
     
+    private void OnShotFired(Vector2 dir)
+    {
+        recoilStartTime = Time.timeSinceLevelLoad;
+        recoilDirection = -dir;
+    }
+
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 public class ShootController : MonoBehaviour
 {
     public static ShootController Instance { get; private set; }
-    
+
+    public event System.Action<Vector2> ShotFired;
+
     public bool pc;
     public float offset;
     public GameObject circle;
@@ -82,8 +84,11 @@ public class ShootController : MonoBehaviour
         if (_curBulletCount <= 0)
         {
             PlayerMovement.Instance.WithSaw(false);
+            PlayerMovement.Instance.WithSaw(false);
         }
         timeBtwShorts = startTimeShots;
+
+        ShotFired?.Invoke(transform.rotation * Vector3.up);
     }
 
     public bool CanJump()

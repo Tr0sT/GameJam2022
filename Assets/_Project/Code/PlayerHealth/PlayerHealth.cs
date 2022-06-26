@@ -21,7 +21,7 @@ using UnityEngine;
             if (_health <= 0)
             {
                 GetComponent<PlayerMovement>().PlayDeathAnimation();
-                GameController.Instance.FinishGame();
+                GameController.Instance.Lose();
             }
         }
     }
