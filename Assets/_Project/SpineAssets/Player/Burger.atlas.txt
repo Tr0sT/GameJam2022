@@ -18,13 +18,6 @@ repeat: none
   orig: 233, 515
   offset: 0, 0
   index: -1
-weapon01
-  rotate: false
-  xy: 1258, 1556
-  size: 248, 236
-  orig: 248, 236
-  offset: 0, 0
-  index: -1
 Нарезка Бургера_anim/畜赅2
   rotate: false
   xy: 1023, 1768
@@ -80,4 +73,11 @@ weapon01
   size: 1020, 601
   orig: 1020, 601
   offset: 0, 0
+  index: -1
+weapon03
+  rotate: false
+  xy: 1258, 1556
+  size: 237, 234
+  orig: 237, 236
+  offset: 0, 2
   index: -1

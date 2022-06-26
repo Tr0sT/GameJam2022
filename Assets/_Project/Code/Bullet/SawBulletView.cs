@@ -22,7 +22,6 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         GetComponent<Movement>().Direction = direction;
         Active = true;
         Physics2D.IgnoreCollision(PlayerMovement.Instance.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        Debug.Log("true");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -97,6 +96,5 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         Active = false;
         OnDestroy = null;
         Physics2D.IgnoreCollision(PlayerMovement.Instance.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
-        Debug.Log("false");
     }
 }
