@@ -8,7 +8,7 @@ using UnityEngine;
 public class EnemyView : SerializedMonoBehaviour, IEnemy
 {
     public event Action<IEnemy>? OnDestroy;
-
+    public Camera cam;
     [NonSerialized]
     [OdinSerialize]
     private EnemySettings _enemySettings = null!;
@@ -34,6 +34,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
                 gameObject.GetComponentInChildren<ParticleSystem>().Play();
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = null;
                 Destroy(gameObject,0.2f);
+                cam.GetComponent<Animator>().Play("cameraAnim", 0, 0.25f);
                 return;
             }
         }

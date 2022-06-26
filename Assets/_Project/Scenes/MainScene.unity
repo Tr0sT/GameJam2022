@@ -1036,7 +1036,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225392710}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a5bc067dba8e4b240af8174c8ba02387, type: 2}
   m_CullingMode: 0
@@ -1867,7 +1867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1683886980
 Transform:
   m_ObjectHideFlags: 0
@@ -1972,7 +1972,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -7110,6 +7110,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  cam: {fileID: 1225392712}
 --- !u!50 &2144853731
 Rigidbody2D:
   serializedVersion: 4
