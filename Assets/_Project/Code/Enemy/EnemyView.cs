@@ -13,6 +13,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
 
     private int _health;
 
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Player"))

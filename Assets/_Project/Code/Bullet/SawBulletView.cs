@@ -51,6 +51,7 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         if (collider.CompareTag("Enemy") && Active)
         {
             collider.GetComponent<IEnemy>().TakeDamage(_sawBulletSettings.Damage);
+            cam.GetComponent<Animator>().Play("cameraAnim", 0, 0.25f);
 
             return;
         }
