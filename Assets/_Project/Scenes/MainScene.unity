@@ -486,6 +486,7 @@ MonoBehaviour:
   _bulletSpawnController: {fileID: 642856859}
   _shootController: {fileID: 70741496}
   _game: {fileID: 311578192}
+  _audioLibrary: {fileID: 11400000, guid: 603c83c7e537a7f46bfa48cdef5f6da1, type: 2}
 --- !u!4 &403575868
 Transform:
   m_ObjectHideFlags: 0

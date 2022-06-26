@@ -16,9 +16,16 @@ public class MenuWindow : FridgeWindow
     }
     #endregion
 
+    public override void Init()
+    {
+        base.Init();
+        AudioManager.PlayMusic("CryinInMyBeer", true);
+    }
+
     public void OnPlayClick()
     {
         Close();
+        AudioManager.PlaySound("Нажатиекнопки");
         GameController.Instance.StartGame();
     }
 

@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using NuclearBand;
 using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
@@ -41,7 +42,6 @@ public class BulletMovement : MonoBehaviour
                 if (_hitCount == 1)
                 {
                     Physics2D.IgnoreCollision(PlayerMovement.Instance.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
-                    Debug.Log("false");
                 }
                 if (_hitCount >= MaxHitCount)
                 {
@@ -60,5 +60,6 @@ public class BulletMovement : MonoBehaviour
         var direction = Vector3.Reflect(_lastFrameVelocity.normalized, collisionNormal);
 
         _movement.Direction = direction;
+        AudioManager.PlaySound("Рикошет");
     }
 }
