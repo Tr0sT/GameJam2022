@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private SkeletonAnimation _animation = null!;
-
+    [SerializeField] 
+    private SkeletonAnimation _animation = null!;
+    [SerializeField] 
+    private SkeletonAnimation _withSaw = null!, _withoutSaw = null!;
+    
     private Joystick _joystick = null!;
     private Movement _movement = null!;
     public static PlayerMovement Instance { get; private set; } = null!;
+    
 
     private bool dead = false;
     public bool jump = false;
@@ -46,6 +50,15 @@ public class PlayerMovement : MonoBehaviour
         jump = false;
         _movement = GetComponent<Movement>();
         if (GameWindow.Instance != null) _joystick = GameWindow.Instance.MovementJoystick;
+        WithSaw(true);
+    }
+
+    public void WithSaw(bool with)
+    {
+        _withSaw.gameObject.SetActive(false);
+        _withoutSaw.gameObject.SetActive(false);
+        _animation = with ? _withSaw : _withoutSaw;
+        _animation.gameObject.SetActive(true);
     }
 
     public void PlayDeathAnimation()
