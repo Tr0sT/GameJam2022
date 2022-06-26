@@ -24,30 +24,48 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         Debug.Log("true");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        foreach (var contact in collision.contacts)
+        if (collider.CompareTag("Enemy") && Active)
         {
-            if (contact.collider.CompareTag("Enemy") && Active)
-            {
-                contact.collider.GetComponent<IEnemy>().TakeDamage(_sawBulletSettings.Damage);
-                DestroyBullet();
-                return;
-            }
-
-            if (contact.collider.CompareTag("Player"))
-            {
-                if (Active)
-                {
-                    contact.collider.GetComponent<PlayerHealth>().TakeDamage(_sawBulletSettings.Damage);
-                }
-                ShootController.Instance.PickupSaw();
-                DestroyBullet();
-                return;
-            }
+            collider.GetComponent<IEnemy>().TakeDamage(_sawBulletSettings.Damage);
+            //contact.collider.GetComponent<CircleCollider2D>().isTrigger = true;
+            //DestroyBullet();
+            return;
         }
+        if (collider.CompareTag("Player"))
+        {
+            if (Active)
+            {
+                collider.GetComponent<PlayerHealth>().TakeDamage(_sawBulletSettings.Damage);
+            }
+            ShootController.Instance.PickupSaw();
+            DestroyBullet();
+            return;
+        }
+
+        //foreach (var contact in collision.contacts)
+        //{
+        //    if (contact.collider.CompareTag("Enemy") && Active)
+        //    {
+        //        contact.collider.GetComponent<IEnemy>().TakeDamage(_sawBulletSettings.Damage);
+        //        //contact.collider.GetComponent<CircleCollider2D>().isTrigger = true;
+        //        //DestroyBullet();
+        //        return;
+        //    }
+
+        //    if (contact.collider.CompareTag("Player"))
+        //    {
+        //        if (Active)
+        //        {
+        //            contact.collider.GetComponent<PlayerHealth>().TakeDamage(_sawBulletSettings.Damage);
+        //        }
+        //        ShootController.Instance.PickupSaw();
+        //        DestroyBullet();
+        //        return;
+        //    }
+        //}
     }
-    
 
 
     private void DestroyBullet()

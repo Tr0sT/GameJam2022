@@ -5,6 +5,7 @@ using NuclearBand;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : SerializedMonoBehaviour
 {
@@ -99,7 +100,8 @@ public class GameController : SerializedMonoBehaviour
         
         _game.SetActive(false);
         _gameWindow.Close();
-        MenuWindow.CreateWindow().Show();
+        SceneManager.LoadScene(0);
+        //MenuWindow.CreateWindow().Show();
         _active = false;
     }
 }

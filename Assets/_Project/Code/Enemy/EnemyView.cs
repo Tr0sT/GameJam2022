@@ -24,20 +24,18 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
         GetComponent<Movement>().Speed = _enemySettings.Speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        foreach (var contact in collision.contacts)
-        {
-            if (contact.collider.CompareTag("Player"))
+
+            if (collider.CompareTag("Player"))
             {
-                contact.collider.GetComponent<PlayerHealth>().TakeDamage(_enemySettings.Damage);
+                collider.GetComponent<PlayerHealth>().TakeDamage(_enemySettings.Damage);
                 gameObject.GetComponentInChildren<ParticleSystem>().Play();
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = null;
                 Destroy(gameObject,0.2f);
                 cam.GetComponent<Animator>().Play("cameraAnim", 0, 0.25f);
                 return;
             }
-        }
     }
 
 
