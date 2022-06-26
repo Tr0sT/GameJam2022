@@ -43,6 +43,7 @@ public class WinLoseWindow : FridgeWindow
     public override void Close()
     {
         base.Close();
+        GameWindow.Instance.Close();
         GameController.Instance.Pause(false);
         SceneManager.LoadScene(0);
     }

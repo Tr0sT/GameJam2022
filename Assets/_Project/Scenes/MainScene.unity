@@ -175,6 +175,38 @@ MonoBehaviour:
   scale: 1
   zPosition: 1
   overrideAlpha: 1
+--- !u!1 &44709865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 44709866}
+  m_Layer: 6
+  m_Name: CrossHair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &44709866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44709865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 401444055}
+  m_Father: {fileID: 70741495}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &70741492
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,15 +285,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70741492}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -163.2, y: 57.1, z: 0}
+  m_LocalPosition: {x: -134.3, y: 48.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 44709866}
   - {fileID: 1160718064}
   - {fileID: 2074777158}
   - {fileID: 72827873}
   m_Father: {fileID: 1241144861}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!114 &70741496
 MonoBehaviour:
@@ -278,7 +311,7 @@ MonoBehaviour:
   pc: 0
   offset: -90
   circle: {fileID: 1160718063}
-  crosshair: {fileID: 401444053}
+  crosshair: {fileID: 44709866}
   noArmor: {fileID: 21300000, guid: fa8d24865748a57448ecc3c3059312d0, type: 3}
   yesArmor: {fileID: 21300000, guid: fe0df9395fe8ea6448ba1ddf3d0ecfba, type: 3}
   shotPoint: {fileID: 1736340863}
@@ -308,12 +341,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72827872}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 15.7, y: 37, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 9.7, y: 28.6, z: 0}
+  m_LocalScale: {x: 0.99999976, y: 0.99999976, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 70741495}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &110651407
 GameObject:
@@ -623,7 +656,7 @@ GameObject:
   - component: {fileID: 401444055}
   - component: {fileID: 401444054}
   m_Layer: 6
-  m_Name: CrossHair
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,11 +700,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f0081b11fbc24f21be87b8cfb313a31, type: 3}
-  m_Color: {r: 0.66289043, g: 0.9622642, b: 0.6309185, a: 1}
+  m_SortingLayerID: -469349401
+  m_SortingLayer: 3
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: d3a9214438572714eb6b1245b3ca0e1b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -688,14 +721,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401444053}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -179.3, y: 46.799995, z: 0}
-  m_LocalScale: {x: 10, y: 15, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 7.199998, y: 211.60008, z: 0}
+  m_LocalScale: {x: 40.328, y: 60.492004, z: 2.0164}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1241144861}
+  m_Father: {fileID: 44709866}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &403575866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,7 +1492,7 @@ Transform:
   m_Children:
   - {fileID: 1651232460}
   m_Father: {fileID: 1241144861}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &859675389
 MonoBehaviour:
@@ -1832,7 +1865,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1241144861}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1096562162
 SpriteRenderer:
@@ -1917,7 +1950,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 70741495}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 90}
 --- !u!212 &1160718065
 SpriteRenderer:
@@ -2290,7 +2323,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 401444055}
   - {fileID: 1096562161}
   - {fileID: 70741495}
   - {fileID: 859675388}
@@ -2348,20 +2380,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 4
-      inSlope: -3.803593
-      outSlope: -3.803593
+      inSlope: -221.45049
+      outSlope: -221.45049
       tangentMode: 0
-      weightedMode: 0
+      weightedMode: 2
       inWeight: 0
-      outWeight: 0.075501405
+      outWeight: 0.0022471908
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -0.7076635
-      outSlope: -0.7076635
+      inSlope: -0.00945521
+      outSlope: -0.00945521
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.6800568
+      weightedMode: 1
+      inWeight: 0.49887645
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -8341,7 +8373,7 @@ Transform:
   m_Children:
   - {fileID: 763968809}
   m_Father: {fileID: 1241144861}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1889878149
 MonoBehaviour:
@@ -8559,7 +8591,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 70741495}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2074777159
 SpriteRenderer:

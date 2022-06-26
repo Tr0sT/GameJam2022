@@ -76,6 +76,7 @@ public class GameWindow : FridgeWindow
 
     public void Restart()
     {
+        Close();
         SceneManager.LoadScene(0);
     }
 }

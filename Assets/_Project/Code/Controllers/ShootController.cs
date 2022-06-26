@@ -10,7 +10,7 @@ public class ShootController : MonoBehaviour
     public bool pc;
     public float offset;
     public GameObject circle;
-    public GameObject crosshair;
+    public Transform crosshair;
     public Sprite noArmor;
     public Sprite yesArmor;
     private Joystick _joystick;
@@ -37,10 +37,11 @@ public class ShootController : MonoBehaviour
     
     void Update()
     {
+        crosshair.transform.localScale = new Vector3(1f, _joystick.Direction.magnitude, 1f);
+
         if (!pc && Mathf.Abs(_joystick.Horizontal) > 0.1f || Mathf.Abs(_joystick.Vertical) > 0.1f)
         {
             rotZ = Mathf.Atan2(_joystick.Vertical, _joystick.Horizontal) * Mathf.Rad2Deg;
-            crosshair.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
         }
         else
         {
