@@ -1,9 +1,11 @@
 ﻿#nullable enable
 using System;
+using System.Collections.Generic;
 using NuclearBand;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyView : SerializedMonoBehaviour, IEnemy
 {
@@ -13,7 +15,11 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
     [NonSerialized] [OdinSerialize] private EnemySettings _enemySettings = null!;
 
     private int _health;
+    [SerializeField] 
+    private List<Sprite> _sprites = new();
 
+    [SerializeField] 
+    private SpriteRenderer _spriteRenderer = null!;
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -40,6 +46,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
         transform.localPosition = position.WithZ(0);
         _health = _enemySettings.Health;
         GetComponent<Movement>().Speed = _enemySettings.Speed;
+        _spriteRenderer.sprite = _sprites[Random.Range(0, _sprites.Count)];
     }
 
 

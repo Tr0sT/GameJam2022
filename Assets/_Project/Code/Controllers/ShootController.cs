@@ -77,10 +77,7 @@ public class ShootController : MonoBehaviour
             return;
         
         BulletSpawnController.Instance.SpawnBullet(shotPoint.position, transform.rotation * Vector3.up, new SawBulletSettings());
-        if (UnityEngine.Random.Range(0, 2) == 0)
-            AudioManager.PlaySound("Выстрел");
-        else
-            AudioManager.PlaySound("Выстрел2");
+        AudioManager.PlaySound("Выстрел2");
         
         _curBulletCount--;
         if (_curBulletCount <= 0)
