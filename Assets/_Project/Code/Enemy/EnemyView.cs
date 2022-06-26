@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using System;
+using System.Collections;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -30,11 +31,14 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
             if (contact.collider.CompareTag("Player"))
             {
                 contact.collider.GetComponent<PlayerHealth>().TakeDamage(_enemySettings.Damage);
-
+                gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = null;
+                Destroy(gameObject,0.2f);
                 return;
             }
         }
     }
+
 
     public void DeInit()
     {
