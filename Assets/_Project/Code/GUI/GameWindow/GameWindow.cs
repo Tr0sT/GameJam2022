@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using NuclearBand;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameWindow : FridgeWindow
@@ -71,5 +72,10 @@ public class GameWindow : FridgeWindow
 
     public override void OnBackButtonPressedCallback()
     {
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 }
