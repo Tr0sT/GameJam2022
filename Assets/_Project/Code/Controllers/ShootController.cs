@@ -2,6 +2,8 @@
 
 public class ShootController : MonoBehaviour
 {
+    public static ShootController Instance { get; private set; }
+    
     public bool pc;
     public float offset;
     private Joystick _joystick;
@@ -11,11 +13,19 @@ public class ShootController : MonoBehaviour
     private float rotZ;
     private Vector3 difference;
 
+    public int StartBulletsCount = 3;
+
     public float startTimeShots;
+
+    private int _curBulletCount;
 
     public void Init(Joystick shootJoystick)
     {
         _joystick = shootJoystick;
+
+        Instance = this;
+
+        _curBulletCount = StartBulletsCount;
     }
     
     void Update()
@@ -45,10 +55,16 @@ public class ShootController : MonoBehaviour
 
     public void Shoot()
     {
-        if (timeBtwShorts > 0)
+        if (timeBtwShorts > 0 || _curBulletCount <= 0)
             return;
         
         BulletSpawnController.Instance.SpawnBullet(shotPoint.position, transform.rotation * Vector3.up, new SawBulletSettings());
+        _curBulletCount--;
         timeBtwShorts = startTimeShots;
+    }
+
+    public void PickupSaw()
+    {
+        _curBulletCount++;
     }
 }

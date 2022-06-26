@@ -226,6 +226,7 @@ MonoBehaviour:
   pc: 1
   offset: -90
   shotPoint: {fileID: 72827873}
+  StartBulletsCount: 3
   startTimeShots: 0.3
 --- !u!1 &72827872
 GameObject:
@@ -1799,6 +1800,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  Active: 0
 --- !u!50 &1678815049
 Rigidbody2D:
   serializedVersion: 4

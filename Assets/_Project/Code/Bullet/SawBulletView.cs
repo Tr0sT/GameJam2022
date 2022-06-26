@@ -11,7 +11,7 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
     [NonSerialized, OdinSerialize]
     private SawBulletSettings _sawBulletSettings = null!;
 
-    private bool _active;
+    public bool Active;
 
     public void Init(Vector3 position, Vector3 direction, IBulletSettings bulletSettings)
     {
@@ -19,23 +19,29 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         transform.localPosition = position.WithZ(0);
         GetComponent<Movement>().Speed = _sawBulletSettings.speed;
         GetComponent<Movement>().Direction = direction;
-        _active = true;
+        Active = true;
+        Physics2D.IgnoreCollision(PlayerMovement.Instance.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        Debug.Log("true");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         foreach (var contact in collision.contacts)
         {
-            if (contact.collider.CompareTag("Enemy") && _active)
+            if (contact.collider.CompareTag("Enemy") && Active)
             {
                 contact.collider.GetComponent<IEnemy>().TakeDamage(_sawBulletSettings.Damage);
                 DestroyBullet();
                 return;
             }
 
-            if (contact.collider.CompareTag("Player") && !_active)
+            if (contact.collider.CompareTag("Player"))
             {
-                contact.collider.GetComponent<PlayerController>().PickupSaw();
+                if (Active)
+                {
+                    contact.collider.GetComponent<PlayerHealth>().TakeDamage(_sawBulletSettings.Damage);
+                }
+                ShootController.Instance.PickupSaw();
                 DestroyBullet();
                 return;
             }
@@ -52,7 +58,9 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
     public void DeInit()
     {
         _sawBulletSettings = null!;
-        _active = false;
+        Active = false;
         OnDestroy = null;
+        Physics2D.IgnoreCollision(PlayerMovement.Instance.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+        Debug.Log("false");
     }
 }
