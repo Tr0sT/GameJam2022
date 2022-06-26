@@ -3,6 +3,7 @@
 using NuclearBand;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinLoseWindow : FridgeWindow
 {
@@ -36,7 +37,6 @@ public class WinLoseWindow : FridgeWindow
     {
         base.Close();
         GameController.Instance.Pause(false);
-        GameController.Instance.FinishGame();
-        GameController.Instance.StartGame();
+        SceneManager.LoadScene(0);
     }
 }
