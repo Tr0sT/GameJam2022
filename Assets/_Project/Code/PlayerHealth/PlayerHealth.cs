@@ -20,6 +20,7 @@ using UnityEngine;
             GameWindow.Instance.SetHP(Mathf.Clamp(1.0f * _health / StartHealth, 0, 1));
             if (_health <= 0)
             {
+                GetComponent<PlayerMovement>().PlayDeathAnimation();
                 GameController.Instance.FinishGame();
             }
         }
