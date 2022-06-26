@@ -19,6 +19,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
         _enemySettings = (EnemySettings) enemySettings;
         transform.localPosition = position.WithZ(-1);
         _health = _enemySettings.Health;
+        GetComponent<Movement>().Speed = _enemySettings.Speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -362,6 +362,9 @@ MonoBehaviour:
     - Name: Damage
       Entry: 3
       Data: 1
+    - Name: Speed
+      Entry: 3
+      Data: 400
     - Name: 
       Entry: 8
       Data: 
@@ -385,7 +388,7 @@ MonoBehaviour:
       Data: 25
     - Name: SpawnDelay
       Entry: 4
-      Data: 0.1
+      Data: 0.5
     - Name: Enemies
       Entry: 7
       Data: 5|System.Collections.Generic.List`1[[IEnemySettings, Assembly-CSharp]],
@@ -402,6 +405,9 @@ MonoBehaviour:
     - Name: Damage
       Entry: 3
       Data: 1
+    - Name: Speed
+      Entry: 3
+      Data: 800
     - Name: 
       Entry: 8
       Data: 
@@ -2327,6 +2333,9 @@ MonoBehaviour:
     - Name: Damage
       Entry: 3
       Data: 1
+    - Name: Speed
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 

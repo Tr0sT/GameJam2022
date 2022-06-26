@@ -81,7 +81,7 @@ public class GameController : SerializedMonoBehaviour
             if (_curStage >= _stages.Count)
                 return;
         }
-        if (_curSpawnTime >= _stages[_curStage].SpawnDelay)
+        if (_curSpawnTime >= _stages[_curStage].SpawnDelay && _enemies.Count < _stages[_curStage].MaxEnemiesCount)
         {
             _enemies.Add(_enemySpawnController.SpawnRandom(_stages[_curStage].Enemies[0]));
 

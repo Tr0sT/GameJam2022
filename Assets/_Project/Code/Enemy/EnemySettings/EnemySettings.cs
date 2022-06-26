@@ -8,4 +8,7 @@ public class EnemySettings : IEnemySettings
 
     [OdinSerialize] 
     public int Damage { get; set; } = 1;
+
+    [OdinSerialize] 
+    public int Speed { get; set; } = 600;
 }
