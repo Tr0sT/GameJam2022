@@ -17,7 +17,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
     public void Init(Vector3 position, IEnemySettings enemySettings)
     {
         _enemySettings = (EnemySettings) enemySettings;
-        transform.localPosition = position.WithZ(-1);
+        transform.localPosition = position.WithZ(0);
         _health = _enemySettings.Health;
         GetComponent<Movement>().Speed = _enemySettings.Speed;
     }
