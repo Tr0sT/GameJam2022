@@ -8,7 +8,8 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
 {
     public event Action<IEnemy>? OnDestroy;
 
-    [NonSerialized] [OdinSerialize] 
+    [NonSerialized]
+    [OdinSerialize]
     private EnemySettings _enemySettings = null!;
 
     private int _health;
@@ -16,7 +17,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
 
     public void Init(Vector3 position, IEnemySettings enemySettings)
     {
-        _enemySettings = (EnemySettings) enemySettings;
+        _enemySettings = (EnemySettings)enemySettings;
         transform.localPosition = position.WithZ(0);
         _health = _enemySettings.Health;
         GetComponent<Movement>().Speed = _enemySettings.Speed;
@@ -29,8 +30,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
             if (contact.collider.CompareTag("Player"))
             {
                 contact.collider.GetComponent<PlayerHealth>().TakeDamage(_enemySettings.Damage);
-                gameObject.GetComponentInChildren<ParticleSystem>().Play();
-                Destroy(gameObject);
+
                 return;
             }
         }
