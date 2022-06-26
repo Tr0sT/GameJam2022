@@ -31,11 +31,6 @@ public class MenuWindow : FridgeWindow
 
     public void OnHelpClick()
     {
-        //HelpWindow.CreateWindow().Show();
-    }
-
-    public void OnSettingsClick()
-    {
         SettingsPopup.CreateWindow().Show();
     }
 
