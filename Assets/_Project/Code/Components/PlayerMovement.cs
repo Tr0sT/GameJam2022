@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (jump)
+        if (!ShootController.Instance.CanJump())
             return;
         
         _animation.AnimationName = "Кувырок";

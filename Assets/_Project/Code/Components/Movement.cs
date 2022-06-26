@@ -12,9 +12,10 @@ public class Movement : MonoBehaviour
     
     private void Update()
     {
-        if (_rigidbody2D.bodyType != RigidbodyType2D.Static)
+        if (_rigidbody2D.bodyType == RigidbodyType2D.Static)
         {
-            _rigidbody2D.velocity = Direction * Speed;
+            return;
         }
+        _rigidbody2D.velocity = Direction * Speed;
     }
 }

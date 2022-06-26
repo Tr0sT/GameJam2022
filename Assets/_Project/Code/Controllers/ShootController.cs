@@ -51,7 +51,7 @@ public class ShootController : MonoBehaviour
         {
             timeBtwShorts -= Time.deltaTime;
         }
-        if (Input.GetMouseButton(0))
+        if (pc && Input.GetMouseButton(0))
         {
             Shoot();
             circle.GetComponent<Animator>().enabled = true;
@@ -73,9 +73,18 @@ public class ShootController : MonoBehaviour
             return;
         
         BulletSpawnController.Instance.SpawnBullet(shotPoint.position, transform.rotation * Vector3.up, new SawBulletSettings());
-        AudioManager.PlaySound("Выстрел");
+        if (UnityEngine.Random.Range(0, 2) == 0)
+            AudioManager.PlaySound("Выстрел");
+        else
+            AudioManager.PlaySound("Выстрел2");
+        
         _curBulletCount--;
         timeBtwShorts = startTimeShots;
+    }
+
+    public bool CanJump()
+    {
+        return _curBulletCount <= 0 && !PlayerMovement.Instance.jump;
     }
 
     public void PickupSaw()
