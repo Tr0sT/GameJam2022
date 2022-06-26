@@ -46,19 +46,19 @@ public class EnemySpawnController : MonoBehaviour
         _enemyPool.Release(enemy);
     }
 
-    public IEnemy SpawnRandom()
+    public IEnemy SpawnRandom(IEnemySettings enemySettings)
     {
         var side = Random.Range(0, 2000 * 2 + 1000 * 2);
         Vector2 position = Vector2.zero;
-        if (side <= 2000)
+        if (side <= 2000) // top
             position = new Vector2(Random.Range(-1000, 1000), 500);
-        else if (side <= 3000)
+        else if (side <= 3000)  // right
             position = new Vector2(1000, Random.Range(-500, 500));
-        if (side <= 5000)
+        else if (side <= 5000) // bottom
             position = new Vector2(Random.Range(-1000, 1000), -500);
-        else 
+        else  // left
             position = new Vector2(-1000, Random.Range(-500, 500));
         
-        return SpawnEnemy(position, new EnemySettings());
+        return SpawnEnemy(position, enemySettings);
     }
 }

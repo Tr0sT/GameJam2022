@@ -319,6 +319,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462ae7a6c8569454ab21bdd589fee96b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _stages
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Stage, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 1|Stage, Assembly-CSharp
+    - Name: Time
+      Entry: 3
+      Data: 5
+    - Name: MaxEnemiesCount
+      Entry: 3
+      Data: 5
+    - Name: SpawnDelay
+      Entry: 4
+      Data: 1
+    - Name: Enemies
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[IEnemySettings, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|EnemySettings, Assembly-CSharp
+    - Name: Health
+      Entry: 3
+      Data: 1
+    - Name: Damage
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|Stage, Assembly-CSharp
+    - Name: Time
+      Entry: 3
+      Data: 10
+    - Name: MaxEnemiesCount
+      Entry: 3
+      Data: 25
+    - Name: SpawnDelay
+      Entry: 4
+      Data: 0.1
+    - Name: Enemies
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[IEnemySettings, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|EnemySettings, Assembly-CSharp
+    - Name: Health
+      Entry: 3
+      Data: 3
+    - Name: Damage
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _enemySpawnController: {fileID: 642856857}
   _bulletSpawnController: {fileID: 642856859}
   _shootController: {fileID: 70741496}
