@@ -1,30 +1,5 @@
 {
   "dependencies": {
-    "com.esotericsoftware.spine.spine-csharp": {
-      "version": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-csharp/src#4.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "e39f74837a615e32e97ffac3b89eb692e3783ad6"
-    },
-    "com.esotericsoftware.spine.spine-unity": {
-      "version": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-unity/Assets/Spine#4.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.esotericsoftware.spine.spine-csharp": "4.0.0"
-      },
-      "hash": "e39f74837a615e32e97ffac3b89eb692e3783ad6"
-    },
-    "com.esotericsoftware.spine.spine-unity-examples": {
-      "version": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-unity/Assets/Spine Examples#4.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.esotericsoftware.spine.spine-unity": "4.0.0"
-      },
-      "hash": "e39f74837a615e32e97ffac3b89eb692e3783ad6"
-    },
     "com.nuclearband.windowsmanager": {
       "version": "https://github.com/NuclearBand/UnityWindowsManager.git#upm",
       "depth": 0,
