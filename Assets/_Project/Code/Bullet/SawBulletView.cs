@@ -7,7 +7,7 @@ using UnityEngine;
 public class SawBulletView : SerializedMonoBehaviour, IBullet
 {
     public event Action<IBullet>? OnDestroy;
-
+    public Camera cam;
     [NonSerialized, OdinSerialize]
     private SawBulletSettings _sawBulletSettings = null!;
 
@@ -22,6 +22,18 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         Active = true;
         Physics2D.IgnoreCollision(PlayerMovement.Instance.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         Debug.Log("true");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        foreach (var contact in collision.contacts)
+        {
+            if (contact.collider.CompareTag("Wall"))
+            {
+                cam.GetComponent<Animator>().Play("cameraAnim", 0, 0.25f);
+            }
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collider)

@@ -56,7 +56,6 @@ public class ShootController : MonoBehaviour
             circle.GetComponent<Animator>().enabled = true;
             circle.GetComponent<Animator>().Play("circleAnim", 0, 0.25f);
         }
-
         if(_curBulletCount <= 0)
         {
             circle.GetComponent<SpriteRenderer>().sprite = noArmor;
