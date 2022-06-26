@@ -225,8 +225,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: 1
   offset: -90
+  circle: {fileID: 1160718063}
+  noArmor: {fileID: 21300000, guid: fa8d24865748a57448ecc3c3059312d0, type: 3}
+  yesArmor: {fileID: 21300000, guid: fe0df9395fe8ea6448ba1ddf3d0ecfba, type: 3}
   shotPoint: {fileID: 72827873}
-  StartBulletsCount: 40
+  StartBulletsCount: 5
   startTimeShots: 0.3
 --- !u!1 &72827872
 GameObject:
@@ -252,7 +255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72827872}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -30.3, y: 43.8, z: 0}
+  m_LocalPosition: {x: 15.7, y: 37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -340,13 +343,13 @@ MonoBehaviour:
       Data: 1|Stage, Assembly-CSharp
     - Name: Time
       Entry: 3
-      Data: 5
+      Data: 20
     - Name: MaxEnemiesCount
       Entry: 3
-      Data: 5
+      Data: 200
     - Name: SpawnDelay
       Entry: 4
-      Data: 1
+      Data: 5
     - Name: Enemies
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[IEnemySettings, Assembly-CSharp]],
@@ -383,13 +386,13 @@ MonoBehaviour:
       Data: 4|Stage, Assembly-CSharp
     - Name: Time
       Entry: 3
-      Data: 15
+      Data: 20
     - Name: MaxEnemiesCount
       Entry: 3
-      Data: 25
+      Data: 300
     - Name: SpawnDelay
       Entry: 4
-      Data: 0.5
+      Data: 2
     - Name: Enemies
       Entry: 7
       Data: 5|System.Collections.Generic.List`1[[IEnemySettings, Assembly-CSharp]],
@@ -869,6 +872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1160718064}
   - component: {fileID: 1160718065}
+  - component: {fileID: 1160718066}
   m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
@@ -943,6 +947,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1160718066
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160718063}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26b2bd836647ec54faac1be8248e33d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1225392710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,13 +1817,14 @@ MonoBehaviour:
       Data: 0
     - Name: speed
       Entry: 3
-      Data: 800
+      Data: 1200
     - Name: lifetime
       Entry: 4
       Data: 0
     - Name: 
       Entry: 8
       Data: 
+  spriteDead: {fileID: 21300000, guid: 27692ff2c4f771b49b61cfd4cd78e8d7, type: 3}
   Active: 0
 --- !u!50 &1678815049
 Rigidbody2D:

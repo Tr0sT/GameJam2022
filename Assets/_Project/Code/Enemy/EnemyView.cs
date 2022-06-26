@@ -9,6 +9,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
 {
     public event Action<IEnemy>? OnDestroy;
     public Camera cam;
+    public Sprite spriteDead;
     [NonSerialized]
     [OdinSerialize]
     private EnemySettings _enemySettings = null!;
@@ -50,7 +51,14 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
 
         if (_health <= 0)
         {
-            OnDestroy?.Invoke(this);
+            gameObject.GetComponentInChildren<ParticleSystem>().Play();
+            gameObject.GetComponentInChildren<SpriteRenderer>().sprite = spriteDead;
+            gameObject.GetComponentInChildren<Animator>().enabled = false;
+            gameObject.GetComponent<Transform>().localScale =  new Vector3(0.5f,0.5f, 0.5f);
+            gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            Destroy(gameObject, 2);
+            //OnDestroy?.Invoke(this);
         }
     }
 }

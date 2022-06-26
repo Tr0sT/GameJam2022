@@ -29,8 +29,7 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
         if (collider.CompareTag("Enemy") && Active)
         {
             collider.GetComponent<IEnemy>().TakeDamage(_sawBulletSettings.Damage);
-            //contact.collider.GetComponent<CircleCollider2D>().isTrigger = true;
-            //DestroyBullet();
+
             return;
         }
         if (collider.CompareTag("Player"))
