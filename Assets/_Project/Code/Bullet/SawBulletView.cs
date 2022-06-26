@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using System;
+using NuclearBand;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -37,6 +38,11 @@ public class SawBulletView : SerializedMonoBehaviour, IBullet
                 if (Active)
                 {
                     contact.collider.GetComponent<PlayerHealth>().TakeDamage(_sawBulletSettings.Damage);
+                    AudioManager.PlaySound("Звукпопадания");
+                }
+                else
+                {
+                    AudioManager.PlaySound("Подъемпилы");
                 }
                 ShootController.Instance.PickupSaw();
                 DestroyBullet();

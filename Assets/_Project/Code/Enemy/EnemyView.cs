@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using System;
+using NuclearBand;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class EnemyView : SerializedMonoBehaviour, IEnemy
             gameObject.GetComponentInChildren<ParticleSystem>().Play();
             gameObject.GetComponentInChildren<SpriteRenderer>().sprite = null;
             Destroy(gameObject, 0.2f);
+            AudioManager.PlaySound("237926__foolboymedia__messy-splat-2");
             cam.GetComponent<Animator>().Play("cameraAnim", 0, 0.25f);
         }
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using NuclearBand;
+using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
@@ -72,6 +73,7 @@ public class ShootController : MonoBehaviour
             return;
         
         BulletSpawnController.Instance.SpawnBullet(shotPoint.position, transform.rotation * Vector3.up, new SawBulletSettings());
+        AudioManager.PlaySound("Выстрел");
         _curBulletCount--;
         timeBtwShorts = startTimeShots;
     }

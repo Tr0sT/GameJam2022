@@ -24,6 +24,9 @@ public class GameController : SerializedMonoBehaviour
     [SerializeField] 
     private GameObject _game = null!;
 
+    [SerializeField]
+    private AudioLibrary _audioLibrary = null;
+
     private GameWindow? _gameWindow;
 
     private List<IEnemy> _enemies = new();
@@ -37,7 +40,8 @@ public class GameController : SerializedMonoBehaviour
         _enemySpawnController.Init();
         _bulletSpawnController.Init();
         _game.SetActive(false);
-        
+
+        AudioManager.AudioLibrary = _audioLibrary;
         WindowsManager.Init(new WindowsManagerSettings
         {
             InputBlockPath = "GUI/InputBlocker",

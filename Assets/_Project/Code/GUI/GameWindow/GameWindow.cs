@@ -35,6 +35,7 @@ public class GameWindow : FridgeWindow
     {
         base.Init();
         SetHP(1.0f);
+        AudioManager.PlayMusic("Pentagram", true);
     }
 
     public void OnShoot()
